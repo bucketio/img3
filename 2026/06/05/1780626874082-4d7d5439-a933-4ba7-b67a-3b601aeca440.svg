@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#fbfaf7"/>
+  <text x="70" y="80" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="34" font-weight="700" fill="#141a20">机制链条：Qwen-VLA 如何把视觉语言变成连续动作</text>
+  <text x="70" y="120" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="18" fill="#58636f">这张图承担“读懂方法”的任务：多模态理解、具身条件和扩散式动作解码如何串成控制链条。</text>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#56606b"/>
+    </marker>
+  </defs>
+  <g font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif">
+    <rect x="74" y="200" width="240" height="150" rx="18" fill="#e8f0f8" stroke="#9bb5cf"/>
+    <text x="106" y="245" font-size="23" font-weight="700" fill="#173b5f">视觉与语言输入</text>
+    <text x="106" y="284" font-size="17" fill="#31475a">摄像头画面</text>
+    <text x="106" y="313" font-size="17" fill="#31475a">自然语言任务</text>
+    <text x="106" y="342" font-size="17" fill="#31475a">历史状态上下文</text>
+    <line x1="314" y1="275" x2="406" y2="275" stroke="#56606b" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="406" y="200" width="260" height="150" rx="18" fill="#e7f3ef" stroke="#98c6b8"/>
+    <text x="438" y="245" font-size="23" font-weight="700" fill="#155b4e">Qwen2.5-VL 底座</text>
+    <text x="438" y="284" font-size="17" fill="#2d554d">多模态语义对齐</text>
+    <text x="438" y="313" font-size="17" fill="#2d554d">复杂指令理解</text>
+    <text x="438" y="342" font-size="17" fill="#2d554d">场景关系建模</text>
+    <line x1="666" y1="275" x2="758" y2="275" stroke="#56606b" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="758" y="200" width="350" height="150" rx="18" fill="#f3ece2" stroke="#caa77d"/>
+    <text x="790" y="245" font-size="23" font-weight="700" fill="#744316">具身条件提示</text>
+    <text x="790" y="284" font-size="17" fill="#60442b">机器人形态、关节和末端执行器</text>
+    <text x="790" y="313" font-size="17" fill="#60442b">动作维度和坐标约束</text>
+    <text x="790" y="342" font-size="17" fill="#60442b">把同一指令翻译到不同身体</text>
+  </g>
+  <g font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif">
+    <line x1="934" y1="350" x2="934" y2="438" stroke="#56606b" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="758" y="438" width="350" height="150" rx="18" fill="#eee9f5" stroke="#b9a3d3"/>
+    <text x="790" y="483" font-size="23" font-weight="700" fill="#583875">Diffusion Transformer 动作头</text>
+    <text x="790" y="522" font-size="17" fill="#534260">从噪声轨迹迭代生成动作</text>
+    <text x="790" y="551" font-size="17" fill="#534260">输出连续控制序列</text>
+    <text x="790" y="580" font-size="17" fill="#534260">支持长时序与细粒度操作</text>
+    <line x1="758" y1="513" x2="666" y2="513" stroke="#56606b" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="406" y="438" width="260" height="150" rx="18" fill="#eef1f2" stroke="#b8c0c4"/>
+    <text x="438" y="483" font-size="23" font-weight="700" fill="#26323a">统一动作空间</text>
+    <text x="438" y="522" font-size="17" fill="#43515b">操作、导航、轨迹预测</text>
+    <text x="438" y="551" font-size="17" fill="#43515b">共享表示与训练目标</text>
+    <text x="438" y="580" font-size="17" fill="#43515b">减少任务间割裂</text>
+    <line x1="406" y1="513" x2="314" y2="513" stroke="#56606b" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="74" y="438" width="240" height="150" rx="18" fill="#f1e7e7" stroke="#cf9f9f"/>
+    <text x="106" y="483" font-size="23" font-weight="700" fill="#713333">真实世界执行</text>
+    <text x="106" y="522" font-size="17" fill="#624444">抓取、移动、避障</text>
+    <text x="106" y="551" font-size="17" fill="#624444">失败反馈进入数据闭环</text>
+    <text x="106" y="580" font-size="17" fill="#624444">现场适配决定付费</text>
+  </g>
+  <rect x="76" y="666" width="1030" height="70" rx="14" fill="#141a20"/>
+  <text x="112" y="710" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="21" fill="#ffffff">关键缺口被打通：不是让机器人“看懂图”，而是把语义理解压到可执行、可迁移、可适配的连续动作上。</text>
+</svg>
