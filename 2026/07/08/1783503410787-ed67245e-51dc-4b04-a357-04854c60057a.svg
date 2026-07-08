@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="430" viewBox="0 0 900 430" role="img" aria-labelledby="title desc">
+  <title id="title">不同容量适合不同预留策略</title>
+  <desc id="desc">展示256GB、512GB、1TB、2TB固态硬盘对应的实用预留空间建议。</desc>
+  <rect width="900" height="430" fill="#ffffff"/>
+  <text x="48" y="65" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#182033">容量不同，预留策略也不同</text>
+  <text x="50" y="105" font-family="Arial, sans-serif" font-size="21" fill="#5f6b80">小容量更怕满，大容量不必死守同一个百分比</text>
+  <g font-family="Arial, sans-serif" font-size="20">
+    <rect x="70" y="155" width="760" height="50" rx="14" fill="#edf5ff"/>
+    <text x="100" y="187" font-weight="700" fill="#1d4f91">256GB</text>
+    <text x="280" y="187" fill="#334155">尽量留 40GB 以上</text>
+    <rect x="70" y="220" width="760" height="50" rx="14" fill="#f6f7fb"/>
+    <text x="100" y="252" font-weight="700" fill="#1d4f91">512GB</text>
+    <text x="280" y="252" fill="#334155">尽量留 60GB 到 100GB</text>
+    <rect x="70" y="285" width="760" height="50" rx="14" fill="#edf5ff"/>
+    <text x="100" y="317" font-weight="700" fill="#1d4f91">1TB</text>
+    <text x="280" y="317" fill="#334155">日常留 100GB 到 150GB 通常够用</text>
+    <rect x="70" y="350" width="760" height="50" rx="14" fill="#f6f7fb"/>
+    <text x="100" y="382" font-weight="700" fill="#1d4f91">2TB+</text>
+    <text x="280" y="382" fill="#334155">看实际用途，留出稳定周转空间即可</text>
+  </g>
+</svg>
