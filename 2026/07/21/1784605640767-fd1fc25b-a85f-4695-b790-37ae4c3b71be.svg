@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1080" font-family="'Microsoft YaHei','PingFang SC',sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#37474F"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="720" height="1080" fill="#FFFFFF"/>
+
+  <!-- setup -->
+  <rect x="100" y="24" width="520" height="64" rx="10" fill="#E3F2FD" stroke="#1565C0" stroke-width="2"/>
+  <text x="360" y="50" text-anchor="middle" font-size="16" font-weight="bold" fill="#0D47A1">开机初始化 setup</text>
+  <text x="360" y="72" text-anchor="middle" font-size="12" fill="#1565C0">串口115200 · GPIO4输入上拉 · GPIO2输出 · ledState=0 · lastButtonState=1</text>
+
+  <line x1="360" y1="88" x2="360" y2="117" stroke="#37474F" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="376" y="104" font-size="13" fill="#37474F">进入主循环 loop</text>
+
+  <!-- read -->
+  <rect x="220" y="118" width="280" height="46" rx="8" fill="#E3F2FD" stroke="#1565C0" stroke-width="2"/>
+  <text x="360" y="146" text-anchor="middle" font-size="14" fill="#0D47A1">读取 GPIO4 → 存入 ButtonState</text>
+
+  <line x1="360" y1="164" x2="360" y2="190" stroke="#37474F" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- diamond1: 下降沿 -->
+  <polygon points="360,190 530,264 360,338 190,264" fill="#FFF3E0" stroke="#E65100" stroke-width="2"/>
+  <text x="360" y="252" text-anchor="middle" font-size="14" font-weight="bold" fill="#E65100">last==高 且 Button==低 ?</text>
+  <text x="360" y="276" text-anchor="middle" font-size="13" fill="#E65100">（下降沿 / 刚按下？）</text>
+
+  <!-- 否 left diamond1 -->
+  <path d="M190,264 L120,264 L120,1004 L432,1004" fill="none" stroke="#37474F" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="120" y="256" text-anchor="middle" font-size="13" font-weight="bold" fill="#2E7D32">否（非新按下）</text>
+
+  <!-- 是 right diamond1 -->
+  <path d="M530,264 L560,264 L560,360" fill="none" stroke="#37474F" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="545" y="256" font-size="13" font-weight="bold" fill="#C62828">是（刚按下）</text>
+
+  <!-- 延时 -->
+  <rect x="445" y="360" width="230" height="46" rx="8" fill="#E3F2FD" stroke="#1565C0" stroke-width="2"/>
+  <text x="560" y="388" text-anchor="middle" font-size="14" fill="#0D47A1">延时 50 ms（按下消抖）</text>
+
+  <line x1="560" y1="406" x2="560" y2="426" stroke="#37474F" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- read2 -->
+  <rect x="445" y="426" width="230" height="46" rx="8" fill="#E3F2FD" stroke="#1565C0" stroke-width="2"/>
+  <text x="560" y="454" text-anchor="middle" font-size="14" fill="#0D47A1">再读 GPIO4（数字输入 引脚4）</text>
+
+  <line x1="560" y1="472" x2="560" y2="490" stroke="#37474F" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- diamond2 -->
+  <polygon points="560,490 680,540 560,590 440,540" fill="#FFF3E0" stroke="#E65100" stroke-width="2"/>
+  <text x="560" y="534" text-anchor="middle" font-size="14" font-weight="bold" fill="#E65100">还 == 0 ?</text>
+  <text x="560" y="556" text-anchor="middle" font-size="13" fill="#E65100">（真按下？）</text>
+
+  <!-- 否 left diamond2 -->
+  <path d="M440,540 L120,540 L120,1004" fill="none" stroke="#37474F" stroke-width="2"/>
+  <text x="360" y="532" font-size="13" font-weight="bold" fill="#2E7D32">否（抖动，忽略）</text>
+
+  <!-- 是 bottom diamond2 -->
+  <path d="M560,590 L560,610" fill="none" stroke="#37474F" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="568" y="606" font-size="13" font-weight="bold" fill="#C62828">是</text>
+
+  <!-- action boxes -->
+  <rect x="435" y="610" width="250" height="48" rx="8" fill="#E8F5E9" stroke="#2E7D32" stroke-width="2"/>
+  <text x="560" y="639" text-anchor="middle" font-size="13" fill="#1B5E20">翻转 ledState（非 ledState）</text>
+
+  <rect x="435" y="668" width="250" height="48" rx="8" fill="#E8F5E9" stroke="#2E7D32" stroke-width="2"/>
+  <text x="560" y="697" text-anchor="middle" font-size="13" fill="#1B5E20">设置 引脚2 输出 ledState</text>
+
+  <rect x="435" y="726" width="250" height="48" rx="8" fill="#E8F5E9" stroke="#2E7D32" stroke-width="2"/>
+  <text x="560" y="755" text-anchor="middle" font-size="13" fill="#1B5E20">串口 打印 按键按下，LED→开/关</text>
+
+  <line x1="560" y1="658" x2="560" y2="668" stroke="#37474F" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="560" y1="716" x2="560" y2="726" stroke="#37474F" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="560" y1="774" x2="560" y2="784" stroke="#37474F" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- while 等松开 -->
+  <rect x="405" y="784" width="310" height="48" rx="8" fill="#E3F2FD" stroke="#1565C0" stroke-width="2"/>
+  <text x="560" y="813" text-anchor="middle" font-size="13" fill="#0D47A1">重复执行当 GPIO4==低：延时10ms（等松开）</text>
+  <path d="M405,820 L378,820 L378,792 L405,792" fill="none" stroke="#37474F" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="372" y="812" text-anchor="end" font-size="12" fill="#37474F">仍按住就继续等</text>
+
+  <!-- 释放消抖 -->
+  <rect x="435" y="842" width="250" height="44" rx="8" fill="#E3F2FD" stroke="#1565C0" stroke-width="2"/>
+  <text x="560" y="870" text-anchor="middle" font-size="13" fill="#0D47A1">延时 50 ms（释放抖动消抖）</text>
+
+  <line x1="560" y1="832" x2="560" y2="842" stroke="#37474F" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 打印已释放 -->
+  <rect x="435" y="894" width="250" height="44" rx="8" fill="#E8F5E9" stroke="#2E7D32" stroke-width="2"/>
+  <text x="560" y="922" text-anchor="middle" font-size="13" fill="#1B5E20">串口 打印 按键已释放，可以继续按了</text>
+
+  <line x1="560" y1="886" x2="560" y2="894" stroke="#37474F" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 打印已释放 → 更新记忆（竖直直连） -->
+  <line x1="560" y1="938" x2="560" y2="982" stroke="#37474F" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 更新记忆 -->
+  <rect x="435" y="982" width="250" height="46" rx="8" fill="#FFF3E0" stroke="#E65100" stroke-width="2"/>
+  <text x="560" y="1010" text-anchor="middle" font-size="12" font-weight="bold" fill="#E65100">更新记忆：lastButtonState = ButtonState</text>
+
+  <!-- loop back -->
+  <path d="M560,1028 L560,1066 L70,1066 L70,141 L220,141" fill="none" stroke="#37474F" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="74" y="600" font-size="13" font-weight="bold" fill="#37474F">循环</text>
+  <text x="145" y="135" text-anchor="middle" font-size="13" font-weight="bold" fill="#37474F">回到 loop 开头</text>
+</svg>
